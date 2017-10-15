@@ -5,8 +5,14 @@ router.get('/', function (req, res, next) {
     res.render('index');
 });
 
-router.get('/message', function (req, res, next) {
-    res.render('erro',{message:'Hello'});
+router.get('/message/:msg', function (req, res, next) {
+    res.render('erro',{message:req.params.msg});
+});
+
+router.post('/message', function (req, res, next) {
+	var message = req.body.message;
+
+    res.redirect('/message/'+message);
 });
 
 module.exports = router;
