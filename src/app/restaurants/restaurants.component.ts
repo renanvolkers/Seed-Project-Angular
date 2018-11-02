@@ -13,7 +13,8 @@ restaurants: Restaurant []
   constructor(private restaurantService: RestaurantsService) { }
 
   ngOnInit() {
-    this.restaurants = this.restaurantService.restaurants();
+     this.restaurantService.restaurants()
+     .subscribe(restaurants=>this.restaurants = restaurants);//Subcribe que é responsavel por fazer a chama get
   }
 
 }
