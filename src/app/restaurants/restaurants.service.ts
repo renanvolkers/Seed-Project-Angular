@@ -19,10 +19,10 @@ constructor(private http: Http){
 restaurants(): Observable<Restaurant[]>{
 
     //'${MEAT_API}= TemplateString usado para concatenar
-    return this.http.get(`${MEAT_API}/restaurants1`)//O response aqui vem o success,erro,fail, json precisamos apenas do json
+    return this.http.get(`${MEAT_API}/restaurants`)//O response aqui vem o success,erro,fail, json precisamos apenas do json
     //Operador map(import 'rxjs/add/operator/map') que uma função que transforma um objeto response em arry de json em restaurante
-    .map(response=>response.json())
-    .catch(ErroHandler.handlerError)
+    .map(response=>response.json());
+    //.catch(ErroHandler.handlerError)
     
 }
 
